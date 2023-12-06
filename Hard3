@@ -1,0 +1,57 @@
+//Hard 3
+/*Given an integer n, count the total number of digit 1 appearing in all non-negative integers less than or equal to n.
+Example 1:
+Input: n = 13
+Output: 6
+Example 2:
+Input: n = 0
+Output: 0
+ 
+Constraints:
+0 <= n <= 109 */
+
+import java.util.Scanner;
+public class Main
+{
+    public static int digitcount(int n)
+    {
+        int count = 0 ;
+        
+        for (long i = 1; i <= n; i *= 10) 
+        {
+            long divider = i * 10;
+            count += (n / divider) * i + Math.min(Math.max(n % divider - i + 1, 0), i);
+        }
+        return count;
+    }
+    public static void main(String[]arg)
+    {
+        Scanner sc = new Scanner(System.in);
+        
+        int n = sc.nextInt();
+        System.out.println("Total number of digit 1 from 0 to " + n + ": " + digitcount(n));
+        
+    }
+}
+
+
+/*Explaination
+     
+    This Java program computes the total count of the digit '1' that appears in the range from 0 to a given input number 'n', inclusive.
+    Method digitcount:
+
+     ->  It takes an integer 'n' as input and returns the count of occurrences of digit '1'.
+        The method operates by iterating through each digit position (ones, tens, hundreds, etc.) in the numbers from 0 to 'n'.
+     -> For each digit position, it calculates the number of times the digit '1' appears in that position for all the numbers.
+     ->This is achieved by dividing the number by increasing powers of 10 and counting the occurrences of '1' in that position using mathematical calculations.
+     ->The count for each position is accumulated to get the total count of occurrences of '1' in the entire range of numbers.
+
+    Main Method:
+
+    ->It takes user input for the value of 'n' (the upper limit for the range).
+    ->Calls the digitcount method to calculate the total count of occurrences of '1'.
+    ->Prints the total count of occurrences of '1' from 0 to 'n'.
+
+    Example:
+    For instance, if 'n' is 15, the program would calculate the count of occurrences of '1' from 0 to 15, 
+    which is 8 ('1' appears 8 times: 1, 10, 11, 12, 13, 14, 15).
