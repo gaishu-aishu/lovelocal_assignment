@@ -1,3 +1,3 @@
 # lovelocal_assignment
 
-code also available in codespace.
+Code also available in codespace.
