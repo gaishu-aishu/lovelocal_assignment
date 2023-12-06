@@ -1,0 +1,58 @@
+//Easy 1
+/* Given a string s consisting of words and spaces, return the length of the last word in the string.
+A word is a maximal 
+substring consisting of non-space characters only.
+ 
+Example 1:
+Input: s = "Hello World"
+Output: 5
+Explanation: The last word is "World" with length 5.
+Example 2:
+Input: s = "   fly me   to   the moon  "
+Output: 4
+Explanation: The last word is "moon" with length 4.
+Example 3:
+Input: s = "luffy is still joyboy"
+Output: 6
+Explanation: The last word is "joyboy" with length 6.
+ 
+Constraints:
+1 <= s.length <= 104
+s consists of only English letters and spaces ' '.
+There will be at least one word in s.
+*/
+
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String [] args)
+	{
+	    Scanner sc =new Scanner(System.in);
+	    int count = 0;
+	    String s= sc.nextLine();
+	    
+	    String [] word = s.split("\\s+");
+	    
+	    int lastindx = word.length-1 ;
+	    
+	    String lastword = word[lastindx];
+	    
+	    for(int i =0;i<lastword.length() ; i++)
+	    {
+	       count++;
+	    }
+	    System.out.println(count);
+	}
+}
+
+//Explaination
+/* This code reads the sentance and give the count of the last word of the sentance s
+    steps:
+    1>Intially the count will be "0".
+    2> Take user input i.e.,sentence s
+    3> split the sentance according to the word .
+    4>Then get the last_index .
+    5>from the index we get the last word for the sentence.
+    6>using for loop count the letter of the word and then print the word count.
+*/
